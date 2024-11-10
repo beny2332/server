@@ -4,10 +4,11 @@ import usersController from './controllers/users'
 import candidatesController from './controllers/candidates'
 import adminController from './controllers/admin'
 import votesController from './controllers/votes'
+import { connectToMongo } from "./config/db"
 
 const PORT = process.env.PORT || 3000
 const app = express()
-
+connectToMongo()
 app.use(express.json())
 
 app.use('/api/users', usersController)
