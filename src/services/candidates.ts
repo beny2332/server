@@ -23,13 +23,20 @@ export const initDatabase = async () => {
         image: "https://randomuser.me/api/portraits/med/men/6.jpg",
       },
     ]
-    for (const cand of cands){
-        const newCand = new Candidate(cand)
-        await newCand.save()
+    for (const cand of cands) {
+      const newCand = new Candidate(cand)
+      await newCand.save()
     }
   } catch (err) {
-    console.log("Error accured while creating initial state of candidates",
-        err
-    )
+    console.log("Error accured while creating initial state of candidates", err)
+  }
+}
+
+export const getCandidateList = async () => {
+  try {
+    const list = await Candidate.find({})
+    return list
+  } catch (err) {
+    throw err
   }
 }

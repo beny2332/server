@@ -1,8 +1,10 @@
 import { Router } from "express"
-import { sid } from "../routes/candidates"
+import { getList, sid } from "../routes/candidates"
 
 const router = Router()
 
-router.post('/sid', sid)
+router.post("/sid", sid)
+
+router.get("/", getList)
 
 export default router
